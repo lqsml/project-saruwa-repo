@@ -1,0 +1,73 @@
+@charset "UTF-8";
+@import url(style_Common.css);
+
+header#header{
+    width: 100%;
+}
+
+/* //// div#headerTop : Buttons ////*/
+#headerTop li{
+transform: translateX(700px);
+}
+li.topMenuLi{
+    width: 60px;
+    text-align: center;
+}
+
+#headerTop a:hover{
+    color: rgb(253, 217, 55);
+}
+
+/* //// div#headerMid : Logo, Search //// */
+
+#headerSearchArea{
+    flex: 1;
+    text-align: right;
+    padding-right: 30px;
+}
+
+#headerSearchArea>input, #headerSearchArea>button{
+    transform: translateY(60px);
+}
+input#headerSearchInput{
+    width: 200px;
+    height: 30px;
+    border: 2px solid #333;
+    border-radius: 3px;
+}
+button#headerSearchButton{
+    width: 60px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: rgb(253, 217, 55);
+    border: none;
+    border-radius: 3px;
+}
+
+
+/* ///// nav#headerGnbArea : GNB Menu //// */
+nav#headerGnbArea{
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: bold;
+    background-color: rgb(253, 217, 55);
+    padding: 5px 5px 5px 0px;
+}
+
+li.gnbMainLi{
+    width: 200px;
+}
+
+li.gnbSubLi{
+    padding-top: 10px;
+    position: relative;
+    left: -40px;
+}
+
+#headerGnbArea a:hover{
+    color: #fff;
+}
+
+/* *{
+    border: 1px solid #aaa;
+} */
