@@ -71,17 +71,16 @@ $(function(){
 		
 	});
 	
-	$("button#closeBtn").click(function(){
+	// 아이디 중복검사 팝업 닫기 버튼
+	$("button.chkIdPopupBtn").click(function(){
 		window.close();
-		let reInputuId = $("button#closeBtn").prop("text", "닫기");
+		let reInputuId = $("button.chkIdPopupBtn").prop("text", "닫기");
 		
 		if(reInputuId){
 			opener.joinFrm.uId.focus();
 		}
 		
 	});
-	
-	
 	
 	// 비밀번호 유효성 검사
 	$("#uPw").keyup(function(){

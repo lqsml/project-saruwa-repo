@@ -37,14 +37,7 @@ $(function() {
 
 	});
 	
-	// 아이디 찾기
-	
-	// 비밀번호 찾기
-	
-	// 회원가입
-	$("button#joinBtn").click(function(){
-		$(location).attr("href", "/join/join.jsp");
-	});
+
 
 
 });

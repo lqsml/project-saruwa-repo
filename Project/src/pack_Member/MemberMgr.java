@@ -128,5 +128,65 @@ public class MemberMgr {
 
 		return loginRes;
 	}
+	
+	public String IDFind(String uName, String uEmail) {
+		String uId = null;
+		
+		try {
 
+			objPool = DBConnectionMgr.getInstance();
+			objConn = objPool.getConnection();
+
+			String sql = "select uId from UserInfo where uName = ? and uEmail = ?";
+			objPstmt = objConn.prepareStatement(sql);
+
+			objPstmt.setString(1, uName);
+			objPstmt.setString(2, uEmail);
+			objRS = objPstmt.executeQuery();
+			
+			if(objRS.next()) {
+				uId = objRS.getString("uId");
+			}
+
+			
+
+		} catch (Exception e) {
+			System.out.println("Exception : " + e.getMessage());
+		} finally {
+			objPool.freeConnection(objConn, objPstmt, objRS);
+		}
+		
+		return uId;
+	}
+
+	public String PWFind(String uName, String uId, String uEmail) {
+		String uPw = null;
+		
+		try {
+
+			objPool = DBConnectionMgr.getInstance();
+			objConn = objPool.getConnection();
+
+			String sql = "select uPw from UserInfo where uName = ? and uId = ? and uEmail = ?";
+			objPstmt = objConn.prepareStatement(sql);
+
+			objPstmt.setString(1, uName);
+			objPstmt.setString(2, uId);
+			objPstmt.setString(3, uEmail);
+			objRS = objPstmt.executeQuery();
+			
+			if(objRS.next()) {
+				uPw = objRS.getString("uPw");
+			}
+
+			
+
+		} catch (Exception e) {
+			System.out.println("Exception : " + e.getMessage());
+		} finally {
+			objPool.freeConnection(objConn, objPstmt, objRS);
+		}
+		
+		return uPw;
+	}
 }

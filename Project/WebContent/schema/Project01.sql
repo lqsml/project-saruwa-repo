@@ -20,21 +20,30 @@ desc manager;
 
 ##### 회원정보 테이블#########
 CREATE TABLE UserInfo(
+uNum 			int				NOT NULL UNIQUE AUTO_INCREMENT  COMMENT '번호',
 uId       		 VARCHAR(200)    NOT NULL    COMMENT '아이디', 
 uPw       	 VARCHAR(200)    NOT NULL    COMMENT '비밀번호', 
 uName     	 VARCHAR(200)    NOT NULL    COMMENT '이름(실명)', 
 uEmail     	 VARCHAR(200)    NOT NULL    COMMENT '이메일', 
-uPhoneNum  NCHAR(13)			NOT NULL    COMMENT '휴대폰번호', 
-address   	 VARCHAR(200)   	NOT NULL    COMMENT '주소', 
+uPhone		  NCHAR(13)			NOT NULL    COMMENT '휴대폰번호', 
 zipcode   	 int           	 		NOT NULL    COMMENT '우편번호', 
-FaveFood  	 int            			NULL        COMMENT '선호음식(select)', 
-SA      		 int           			NULL        COMMENT '선택약관동의여부', 
+address   	 VARCHAR(200)   	NOT NULL    COMMENT '주소', 
+faveFood  	VARCHAR(200)                      COMMENT '선호음식(select)', 
+sa      		 int           				        COMMENT '선택약관동의여부', 
+joinTM		datetime				NOT NULL		,
      PRIMARY KEY (uId)
 );
 
+insert into UserInfo (uId, uPw, uName, uEmail, uPhone, zipcode, address, joinTM)
+				values('tester', 1234, '테스터', 'tester@naver.com', '010-1234-1234', 12345, '서울', '2022-09-29 15:49:49');
+
+
 ALTER TABLE UserInfo COMMENT '회원정보 테이블';
 
+desc UserInfo;
 
+select * from UserInfo order by uNum desc;
+drop table UserInfo;
 
 ####### 상품 테이블 ########
 CREATE TABLE Products(
