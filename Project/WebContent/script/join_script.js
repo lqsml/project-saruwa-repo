@@ -149,15 +149,6 @@ $(function(){
 		} 
 		
 	});
-	// 이메일 유효성 검사
-	$("input#uPhone_01").click(function(){
-		
-		if($("#uEmail_01").val() == ""){ 
-			alert("이메일 아이디를 확인해주세요.");
-			$("input#uEmail_01").focus(); 
-		}
-		
-	});
 	
 	// 휴대폰 번호 유효성 검사
 		$("button#phoneAuthBtn").click(function(){
@@ -265,6 +256,71 @@ $(function(){
 			}
 		}
 	};
+	
+	// 회원 정보 수정
+	$("button#modBtn").click(function(){
+		fnModSbm();
+	});
+	
+	function fnModSbm(){
+		let uPw = $("#uPw").val().trim();
+		$("#uPw").val(uPw);
+		let uPwRe = $("#uPwRe").val().trim();
+		let uEmail_01 = $("#uEmail_01").val().trim();
+		let uEmail_02 = $("#uEmail_02").val().trim();
+		$("#uEmail").val(uEmail_01 + "@" + uEmail_02);
+		let uPhone_01 = $("#uPhone_01").val().trim();
+		let uPhone_02 = $("#uPhone_02").val().trim();
+		let uPhone_03 = $("#uPhone_03").val().trim();
+		$("#uPhone").val(uPhone_01 + "-" + uPhone_02 + "-" + uPhone_03);
+		// 쇼핑정보 수신 동의
+		
+		if (uPw == "") {
+			alert("비밀번호를 입력해주세요.");
+			$("#uPw").focus();
+			return;
+		} else if (uPwRe == "" || uPw != uPwRe) {
+			alert("비밀번호 일치여부를 확인해주세요.");
+			$("#uPwRe").focus();
+			return;
+		} else if (uEmail_01 == "") {
+			alert("이메일 주소를 입력해주세요.");
+			$("#uEmail_01").focus();
+			return;
+		} else if (uEmail_02 == "") {
+			alert("이메일 주소를 입력해주세요.");
+			$("#uEmail_02").focus();
+			return;
+		} else {
+			let chkSbmTF = confirm("회원 정보를 수정하시겠습니까?");
+			if (chkSbmTF) {
+				$("#modFrm").attr("action", "/mypage/infoModProc.jsp").submit();
+			}
+		}
+	}
+	
+	// 회원 탈퇴
+	$("button#quitBtn").click(function(){
+		let uId = $("#uId").val().trim();
+		$("#uId").val(uId);
+		let uPw = $("#uPw").val().trim();
+		$("#uPw").val(uPw);
+		
+		if (uId == "") {
+			alert("아이디를 입력해주세요.");
+			$("#uId").focus();
+			return;
+		} else if (uPw == "") {
+			alert("비밀번호를 입력해주세요.");
+			$("#uPw").focus();
+			return;
+		} else {
+			let chkSbmTF = confirm("회원탈퇴하시겠습니까?");
+			if (chkSbmTF) {
+				$("#quitFrm").attr("action", "/mypage/memberQuitProc.jsp").submit();
+			}
+		}
+	});
 	
 
 	

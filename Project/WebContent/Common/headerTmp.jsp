@@ -35,7 +35,7 @@ String uId_Session_HTmp = (String) session.getAttribute("uId_Session");
 				%>
 				<li class="topMenuLi"><a href="/login/logout.jsp">Logout</a></li>
 				<li>|</li>
-				<li class="topMenuLi"><a href="">My Page</a></li>
+				<li class="topMenuLi"><a href="/mypage/mypage.jsp">My Page</a></li>
 				<li>|</li>
 				<li class="topMenuLi"><a href="">Cart</a></li>
 				<li>|</li>

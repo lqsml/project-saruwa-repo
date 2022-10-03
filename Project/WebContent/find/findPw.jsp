@@ -21,6 +21,8 @@
 <body>
 	<div id="wrap">
 	
+		<jsp:include page="/Common/headerTmp.jsp"/>
+	
 		<main id="main">
 			
 			<h1>아이디 찾기</h1>

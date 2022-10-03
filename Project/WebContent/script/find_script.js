@@ -88,8 +88,18 @@ $(function() {
 		}
 
 	});
+	// 아이디찾기 팝업창 비밀번호 찾기 버튼 
+	$("button#popFindPwBtn").click(function(){
+		opener.location.href="/find/findPw.jsp";
+		window.close();
+	});
+	
 	// 찾기 팝업 닫기 버튼
-	$("button.findPopupBtn").click(function() {
+	$("button.locLoginBtn").click(function() {
+		opener.location.href="/login/login.jsp";
+		window.close();
+	});
+	$("button.locFindIdBtn").click(function() {
 		opener.location.href="/login/login.jsp";
 		window.close();
 	});

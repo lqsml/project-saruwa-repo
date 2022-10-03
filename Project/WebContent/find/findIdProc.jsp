@@ -37,7 +37,12 @@ String uEmail = request.getParameter("uEmail");
 		</span>
 		<hr>
 		<div id="popUpBtnArea">
-			<button type="button" id="closeBtn" class="findPopupBtn">닫기</button>
+			<% if(uId != null){ %>
+				<button type="button" id="popFindPwBtn"> 비밀번호 찾기</button>
+				<button type="button" id="closeBtn" class="locLoginBtn">닫기</button>
+			<% } else{%>
+				<button type="button" id="closeBtn" class="locFindIdBtn">닫기</button>			
+			<% }%>
 		</div>
 	
 	</div>
